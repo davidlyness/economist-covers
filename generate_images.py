@@ -40,7 +40,7 @@ def generate_images():
         draw = PIL.ImageDraw.Draw(new_image, "RGBA")
         font = PIL.ImageFont.truetype("~/Library/Fonts/SFCompactDisplay-Light.otf", 48)  # Change to your desired font
         draw.text((3885, 2103), current_year, (255, 255, 255, 0), font=font)
-        new_image = new_image.resize((1920, 1080), PIL.Image.ANTIALIAS)
+        new_image = new_image.resize((2000, 1080), PIL.Image.ANTIALIAS)
         new_image.save('output/{year}.png'.format(year=current_year), quality=85, optimize=True)
 
 
