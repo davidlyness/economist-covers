@@ -1,5 +1,5 @@
 # coding=utf-8
-"""generate_annual_aggregates"""
+"""get_covers"""
 
 import bs4
 import dateutil.parser
@@ -20,9 +20,7 @@ def get_covers():
     }
 
     soup = bs4.BeautifulSoup(requests.get(base_url, headers=headers).text, "html.parser")
-    years = []
-    for option in soup.find("select", {"id": "edit-date-filter-value-year"}).findAll("option"):
-        years.append(option.contents[0])
+    years = [opt.contents[0] for opt in soup.find("select", {"id": "edit-date-filter-value-year"}).findAll("option")]
     new_covers = True
 
     for year in years:
