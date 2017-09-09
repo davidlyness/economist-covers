@@ -1,10 +1,11 @@
 # coding=utf-8
 """get_covers"""
 
+import sqlite3
+
 import bs4
 import dateutil.parser
 import requests
-import sqlite3
 
 import database
 
@@ -14,7 +15,7 @@ def get_covers():
     Get new covers from the Economist website and add them to the database.
     """
     db = database.Database("db.sqlite3")
-    base_url = "http://www.economist.com/printedition/covers?print_region=76976"
+    base_url = "http://www.economist.com/printedition/covers?print_region=76981"
     headers = {
         "User-Agent": "Mozilla/5.0"
     }
